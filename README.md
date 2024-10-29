@@ -16,4 +16,4 @@
 
 `git push origin Yourname`
 
-
+`git pull origin main` A faire à chaque fois que vous commencez à coder afin d'être à jour avec tous le monde
