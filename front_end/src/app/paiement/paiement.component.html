@@ -1,0 +1,78 @@
+<div class="payment-container">
+  <div class="payment-header">
+    <h1 class="payment-title">Paiement Sécurisé</h1>
+    <p class="payment-subtitle">Résumé de votre commande :</p>
+
+    <!-- Résumé de la commande -->
+    <div class="order-summary">
+      <h3>Articles commandés :</h3>
+      <ul>
+        <li *ngFor="let item of cartItems">
+          {{ item.product.name }} (Taille : {{ item.size }}) - {{ item.product.price }} €
+        </li>
+      </ul>
+      <h4>Prix total : {{ totalPrice }} €</h4>
+    </div>
+  </div>
+
+  <!-- Formulaire de paiement -->
+  <form #paymentForm="ngForm" (ngSubmit)="onPay(paymentForm)" class="payment-form">
+    <div class="form-group">
+      <label for="cardHolder" class="form-label">Nom du Titulaire</label>
+      <input
+        type="text"
+        id="cardHolder"
+        class="form-input"
+        name="cardHolder"
+        ngModel
+        required
+        placeholder="Ex : Jean Dupont"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="cardNumber" class="form-label">Numéro de Carte</label>
+      <input
+        type="text"
+        id="cardNumber"
+        class="form-input"
+        name="cardNumber"
+        ngModel
+        required
+        placeholder="1234 5678 9012 3456"
+      />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group half">
+        <label for="expiryDate" class="form-label">Date d'Expiration</label>
+        <input
+          type="text"
+          id="expiryDate"
+          class="form-input"
+          name="expiryDate"
+          ngModel
+          required
+          placeholder="MM/YY"
+        />
+      </div>
+      <div class="form-group half">
+        <label for="cvv" class="form-label">CVV</label>
+        <input
+          type="text"
+          id="cvv"
+          class="form-input"
+          name="cvv"
+          ngModel
+          required
+          placeholder="123"
+        />
+      </div>
+    </div>
+
+    <!-- Bouton de soumission -->
+    <button type="submit" class="submit-btn" [disabled]="paymentForm.invalid">
+      Payer {{ totalPrice | currency:'EUR' }}
+    </button>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <h1>Select a size for {{ product?.name }}</h1>
+  <img [src]="product?.imageUrl" alt="{{ product?.name }}" style="width: 200px;" />
+
+  <div class="mt-4">
+    <h4>Choose your size :</h4>
+    <div class="d-flex flex-wrap">
+      <button
+        *ngFor="let size of sizes"
+        class="btn btn-outline-primary m-1"
+        [class.active]="selectedSize === size"
+        (click)="onSelectSize(size)"
+      >
+        {{ size }}
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <button class="btn btn-success" (click)="onConfirm()">Confirm</button>
+  </div>
+</div>

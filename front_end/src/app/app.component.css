@@ -1,0 +1,52 @@
+/* Navbar styling */
+.navbar {
+  background-color: #007bff; /* Primary blue color */
+  border-bottom: 3px solid #0056b3; /* Add a bottom border for contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 1000; /* Ensure the navbar stays on top */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff; /* White text for the brand */
+}
+
+.navbar-nav .nav-link {
+  color: #fff; /* White color for navigation links */
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 15px; /* Space between links */
+  transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #d4d4d4; /* Lighter color on hover */
+}
+
+.navbar-nav .dropdown-menu {
+  background-color: #fff; /* White background for dropdown */
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for dropdown */
+}
+
+.dropdown-item {
+  color: #333; /* Dark color for dropdown items */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0; /* Light gray background on hover */
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5); /* Light border for toggler */
+}
+
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 0.5%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
+
+.container {
+  margin-top: 100px; /* Adjusted for larger navbar */
+}
