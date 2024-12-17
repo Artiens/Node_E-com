@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
-const cors_1 = __importDefault(require("cors"));
+//import cors from 'cors';
 const swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 // Modèles
@@ -23,7 +23,7 @@ const User_1 = __importDefault(require("./models/User"));
 const Vente_1 = __importDefault(require("./models/Vente"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use((0, cors_1.default)());
+//app.use(cors());
 // Connexion MongoDB
 const MONGO_URI = 'mongodb+srv://tissotpierrelouis:h8ZJ8VWQSqr6egnD@cluster0.ayur1.mongodb.net/mydatabase';
 mongoose_1.default
@@ -102,7 +102,8 @@ app.post('/api/register', (req, res) => __awaiter(void 0, void 0, void 0, functi
     try {
         const existingUser = yield User_1.default.findOne({ email });
         if (existingUser) {
-            return res.status(400).send({ error: 'Utilisateur déjà existant.' });
+            res.status(400).send({ error: 'Utilisateur déjà existant.' });
+            return;
         }
         const hashedPassword = yield bcrypt_1.default.hash(password, 10);
         const newUser = new User_1.default({ email, password: hashedPassword });
@@ -136,7 +137,8 @@ app.post('/api/login', (req, res) => __awaiter(void 0, void 0, void 0, function*
     try {
         const user = yield User_1.default.findOne({ email });
         if (!user || !(yield bcrypt_1.default.compare(password, user.password))) {
-            return res.status(400).send({ error: 'Email ou mot de passe incorrect.' });
+            res.status(400).send({ error: 'Email ou mot de passe incorrect.' });
+            return;
         }
         res.status(200).send({ message: 'Connexion réussie.' });
     }
@@ -166,7 +168,8 @@ app.post('/api/vente', (req, res) => __awaiter(void 0, void 0, void 0, function*
     const { id, somme, idProduits } = req.body;
     try {
         if (!id || !somme || !idProduits || !Array.isArray(idProduits)) {
-            return res.status(400).json({ error: 'Données invalides.' });
+            res.status(400).json({ error: 'Données invalides.' });
+            return;
         }
         const vente = new Vente_1.default({ id, somme, idProduits });
         yield vente.save();
@@ -228,7 +231,8 @@ app.delete('/api/users/:id', (req, res) => __awaiter(void 0, void 0, void 0, fun
     try {
         const deletedUser = yield User_1.default.findByIdAndDelete(userId);
         if (!deletedUser) {
-            return res.status(404).json({ error: 'Utilisateur introuvable.' });
+            res.status(404).json({ error: 'Utilisateur introuvable.' });
+            return;
         }
         res.status(200).json({ message: 'Utilisateur supprimé avec succès.', user: deletedUser });
     }

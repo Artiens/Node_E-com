@@ -89,13 +89,14 @@ app.get('/', (req: Request, res: Response) => {
  *       400:
  *         description: L'utilisateur existe déjà.
  */
-app.post('/api/register', async (req: Request, res: Response) => {
+app.post('/api/register', async (req: Request, res: Response): Promise<undefined> =>  {
   const { email, password } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).send({ error: 'Utilisateur déjà existant.' });
+      res.status(400).send({ error: 'Utilisateur déjà existant.' });
+      return;
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ email, password: hashedPassword });
@@ -124,13 +125,14 @@ app.post('/api/register', async (req: Request, res: Response) => {
  *       400:
  *         description: Email ou mot de passe incorrect.
  */
-app.post('/api/login', async (req: Request, res: Response) => {
+app.post('/api/login', async (req: Request, res: Response): Promise<undefined> => {
   const { email, password } = req.body;
 
   try {
     const user = await User.findOne({ email });
     if (!user || !(await bcrypt.compare(password, user.password))) {
-      return res.status(400).send({ error: 'Email ou mot de passe incorrect.' });
+      res.status(400).send({ error: 'Email ou mot de passe incorrect.' });
+      return;
     }
     res.status(200).send({ message: 'Connexion réussie.' });
   } catch (err) {
@@ -156,12 +158,13 @@ app.post('/api/login', async (req: Request, res: Response) => {
  *       400:
  *         description: Données invalides.
  */
-app.post('/api/vente', async (req: Request, res: Response) => {
+app.post('/api/vente', async (req: Request, res: Response): Promise<undefined> => {
   const { id, somme, idProduits } = req.body;
 
   try {
     if (!id || !somme || !idProduits || !Array.isArray(idProduits)) {
-      return res.status(400).json({ error: 'Données invalides.' });
+      res.status(400).json({ error: 'Données invalides.' });
+      return;
     }
     const vente = new Vente({ id, somme, idProduits });
     await vente.save();
@@ -189,7 +192,7 @@ app.post('/api/vente', async (req: Request, res: Response) => {
  *       500:
  *         description: Erreur serveur.
  */
-app.get('/api/ventes', async (req: Request, res: Response) => {
+app.get('/api/ventes', async (req: Request, res: Response): Promise<undefined> => {
   try {
     const ventes = await Vente.find();
     res.status(200).json(ventes);
@@ -218,13 +221,14 @@ app.get('/api/ventes', async (req: Request, res: Response) => {
  *       404:
  *         description: Utilisateur introuvable.
  */
-app.delete('/api/users/:id', async (req: Request, res: Response) => {
+app.delete('/api/users/:id', async (req: Request, res: Response): Promise<undefined> => {
   const userId = req.params.id;
 
   try {
     const deletedUser = await User.findByIdAndDelete(userId);
     if (!deletedUser) {
-      return res.status(404).json({ error: 'Utilisateur introuvable.' });
+      res.status(404).json({ error: 'Utilisateur introuvable.' });
+      return;
     }
     res.status(200).json({ message: 'Utilisateur supprimé avec succès.', user: deletedUser });
   } catch (err) {
