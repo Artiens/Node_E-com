@@ -1,0 +1,11 @@
+GET http://localhost:3000/api/liveness
+###
+
+POST http://localhost:3000/api/todo
+Content-Type: application/json
+Accept: application/json
+
+{
+  "msg": "body from intellij"
+}
+###
