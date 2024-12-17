@@ -43,7 +43,7 @@ export class PaiementComponent {
       };
 
       // Envoi des données de paiement au backend
-      this.http.post('http://localhost:3000/api/vente', paymentData).subscribe({
+      this.http.post('/api/vente', paymentData).subscribe({
         next: (response) => {
           alert('Payment registered successfully !');
           this.cartService.clearCart(); // Vider le panier après paiement

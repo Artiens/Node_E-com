@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
-import cors from 'cors';
+//import cors from 'cors';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 
@@ -11,7 +11,7 @@ import Vente from './models/Vente';
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+//app.use(cors());
 
 // Connexion MongoDB
 const MONGO_URI = 'mongodb+srv://tissotpierrelouis:h8ZJ8VWQSqr6egnD@cluster0.ayur1.mongodb.net/mydatabase';

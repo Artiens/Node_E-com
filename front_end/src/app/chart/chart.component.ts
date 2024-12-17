@@ -14,7 +14,7 @@ export class ChartComponent implements OnInit {
 
   ngOnInit(): void {
     // Récupérer les données de l'API
-    this.http.get<any[]>('http://localhost:3000/api/ventes').subscribe(
+    this.http.get<any[]>('/api/ventes').subscribe(
       (data) => {
         console.log('Données récupérées:', data); // Log des données pour vérifier
         this.prepareChartData(data);
