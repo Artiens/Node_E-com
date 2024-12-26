@@ -6,7 +6,7 @@ export interface IUser extends Document {
   password: string;
 }
 
-// Schéma Mongoose pour les utilisateurs
+// Mongoose schema for users
 const UserSchema: Schema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
