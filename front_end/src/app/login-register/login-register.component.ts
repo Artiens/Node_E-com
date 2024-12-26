@@ -22,7 +22,7 @@ export class LoginRegisterComponent {
   onRegister() {
     if (this.registerUsername && this.registerPassword) {
       this.http
-        .post(`${environment.apiUrl}/register`, {
+        .post(`/api/register`, {
           email: this.registerUsername,
           password: this.registerPassword,
         })
