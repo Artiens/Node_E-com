@@ -54,7 +54,7 @@ export class ChartComponent implements OnInit {
         height: 700
       },
       title: {
-        text: 'Total des ventes par date'
+        text: 'Total sales by date'
       },
       credits: {
         enabled: false
@@ -67,11 +67,11 @@ export class ChartComponent implements OnInit {
       },
       yAxis: {
         title: {
-          text: 'Somme des ventes'
+          text: 'Total sales'
         }
       },
       series: [{
-        name: 'Ventes',
+        name: 'Sales',
         data: seriesData  // Sommes des ventes pour chaque date
       }]
     };

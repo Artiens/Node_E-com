@@ -1,24 +1,24 @@
 <div class="payment-container">
   <div class="payment-header">
-    <h1 class="payment-title">Paiement Sécurisé</h1>
-    <p class="payment-subtitle">Résumé de votre commande :</p>
+    <h1 class="payment-title">Secure Payment</h1>
+    <p class="payment-subtitle">Summary of your order :</p>
 
     <!-- Résumé de la commande -->
     <div class="order-summary">
-      <h3>Articles commandés :</h3>
+      <h3>Items ordered :</h3>
       <ul>
         <li *ngFor="let item of cartItems">
           {{ item.product.name }} (Taille : {{ item.size }}) - {{ item.product.price }} €
         </li>
       </ul>
-      <h4>Prix total : {{ totalPrice }} €</h4>
+      <h4>Total price : {{ totalPrice }} €</h4>
     </div>
   </div>
 
   <!-- Formulaire de paiement -->
   <form #paymentForm="ngForm" (ngSubmit)="onPay(paymentForm)" class="payment-form">
     <div class="form-group">
-      <label for="cardHolder" class="form-label">Nom du Titulaire</label>
+      <label for="cardHolder" class="form-label">Name of the Holder</label>
       <input
         type="text"
         id="cardHolder"
@@ -31,7 +31,7 @@
     </div>
 
     <div class="form-group">
-      <label for="cardNumber" class="form-label">Numéro de Carte</label>
+      <label for="cardNumber" class="form-label">Card Number</label>
       <input
         type="text"
         id="cardNumber"
@@ -45,7 +45,7 @@
 
     <div class="form-row">
       <div class="form-group half">
-        <label for="expiryDate" class="form-label">Date d'Expiration</label>
+        <label for="expiryDate" class="form-label">Expiration date</label>
         <input
           type="text"
           id="expiryDate"
@@ -72,7 +72,7 @@
 
     <!-- Bouton de soumission -->
     <button type="submit" class="submit-btn" [disabled]="paymentForm.invalid">
-      Payer {{ totalPrice | currency:'EUR' }}
+      Pay {{ totalPrice | currency:'EUR' }}
     </button>
   </form>
 </div>
