@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { AccueilComponent } from './accueil/accueil.component';
 import { LoginComponent } from './login/login.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { ShopComponent } from './shop/shop.component';
@@ -12,7 +11,6 @@ import { ChartComponent } from './chart/chart.component';
 export const routes: Routes = [
   { path: 'login', component: LoginComponent }, // Route pour la page de login
   { path: 'register', component: LoginRegisterComponent }, // Réutilisation de LoginComponent pour Register
-  { path: 'accueil', component: AccueilComponent }, // Route pour la page d'accueil
   { path: 'shop', component: ShopComponent }, // Route pour Shop
   { path: 'paiement', component: PaiementComponent }, // Route pour Paiement
   { path: 'panier', component: PanierComponent }, // Route pour Panier
