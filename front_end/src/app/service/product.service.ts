@@ -12,7 +12,7 @@ export class ProductService {
     { id: 3, name: 'Jordan 4 frozen', price: 300.00, imageUrl: 'assets/jd4_frozen.jpg' },
     { id: 4, name: 'Jordan 4 travis', price: 500.00, imageUrl: 'assets/jd4_travis.jpg' },
     { id:5, name: 'Jordan 4 off_white', price: 1000.00, imageUrl: 'assets/jd4_offwhite.jpg' },
-    { id:5, name: 'Jordan 4 military_black', price: 149.99, imageUrl: 'assets/jd4_mb.jpg' },
+    { id:6, name: 'Jordan 4 military_black', price: 149.99, imageUrl: 'assets/jd4_mb.jpg' },
 
   ];
 

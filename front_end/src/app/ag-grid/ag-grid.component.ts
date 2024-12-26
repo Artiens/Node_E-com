@@ -81,7 +81,7 @@ export class ProductGridComponent implements OnInit{
       // Map over the products and add the count to each product
       const productsWithCount = products.map(product => {
         const count = frequencyMap.get(product.id) || 0;  // Get the count from the map, default to 0 if not found
-        return { ...product, number: count };  // Add the 'number' field to each product
+        return { ...product, num: count };  // Add the 'number' field to each product
       });
 
       console.log('Processed products with count:', productsWithCount);  // Log the processed products
