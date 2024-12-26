@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-view-graph',
   templateUrl: './chart.component.html',
+  standalone: true,
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit {

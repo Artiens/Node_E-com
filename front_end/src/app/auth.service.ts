@@ -15,7 +15,7 @@ export class AuthService {
 
   // Login method
   login(email: string, password: string) {
-    return this.http.post<{ message: string, token: string }>(`${this.apiUrl}/login`, { email, password });
+    return this.http.post<{ message: string, token: string }>(`/api/login`, { email, password });
   }
 
   // This function is called to update the email in the BehaviorSubject
