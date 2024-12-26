@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { environment } from '../../environments/environments';
 
 @Component({
   selector: 'app-login-register',
   standalone: true,
   imports: [FormsModule], // Added FormsModule for [(ngModel)]
   templateUrl: './login-register.component.html',
-  styleUrls: ['./login-register.component.css'],
 })
 export class LoginRegisterComponent {
   registerUsername = ''; // Contains the username to register

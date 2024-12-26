@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = environment.apiUrl;
   private userEmailSubject = new BehaviorSubject<string | null>(null);  // Initialize the email as null
   userEmail$ = this.userEmailSubject.asObservable();  // Observable to be subscribed by other components
 

@@ -8,7 +8,6 @@ import { Product } from '../models/products.models';
 @Component({
   selector: 'app-select-size',
   templateUrl: './select-size.component.html',
-  styleUrls: ['./select-size.component.css'],
   standalone: true,
   imports: [CommonModule],
 })
