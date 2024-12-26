@@ -8,14 +8,13 @@
       <h3>Items ordered :</h3>
       <ul>
         <li *ngFor="let item of cartItems">
-          {{ item.product.name }} (Taille : {{ item.size }}) - {{ item.product.price }} €
+          {{ item.product.name }} (Size : {{ item.size }}) - {{ item.product.price }} €
         </li>
       </ul>
       <h4>Total price : {{ totalPrice }} €</h4>
     </div>
   </div>
 
-  <!-- Formulaire de paiement -->
   <form #paymentForm="ngForm" (ngSubmit)="onPay(paymentForm)" class="payment-form">
     <div class="form-group">
       <label for="cardHolder" class="form-label">Name of the Holder</label>
@@ -70,7 +69,6 @@
       </div>
     </div>
 
-    <!-- Bouton de soumission -->
     <button type="submit" class="submit-btn" [disabled]="paymentForm.invalid">
       Pay {{ totalPrice | currency:'EUR' }}
     </button>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; // Nécessaire pour [(ngModel)]
-import { environment } from '../../environments/environments'; // Nécessaire pour l'URL de l'API
+import { FormsModule } from '@angular/forms';
+import { environment } from '../../environments/environments';
 
 @Component({
   selector: 'app-login-register',

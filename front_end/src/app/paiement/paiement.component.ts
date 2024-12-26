@@ -35,14 +35,12 @@ export class PaiementComponent {
 
   onPay(form: any): void {
     if (form.valid) {
-      // Préparation des données à envoyer
       const paymentData = {
         id: 'vente_' + Date.now(), //Unique ID of the sale
         somme: this.totalPrice,
         idProduits: this.cartItems.map((item) => item.product.id),
       };
 
-      // Envoi des données de paiement au backend
       this.http.post('/api/vente', paymentData).subscribe({
         next: (response) => {
           alert('Payment registered successfully !');

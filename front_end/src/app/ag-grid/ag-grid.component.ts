@@ -4,7 +4,6 @@ import {CommonModule} from '@angular/common';
 import {Product} from '../models/products.models';
 import {Component, OnInit} from '@angular/core';
 import type {ColDef, GridApi, GridReadyEvent} from 'ag-grid-community'; // Column Definition Type Interface
-import { ICellRendererParams } from 'ag-grid-community';
 import { HttpClient } from '@angular/common/http';
 
 

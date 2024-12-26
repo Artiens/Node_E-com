@@ -6,7 +6,7 @@
         <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.name }}" />
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
-          <p class="card-text">Prix : {{ product.price }} €</p>
+          <p class="card-text">Price : {{ product.price }} €</p>
           <a class="btn btn-primary" [routerLink]="['/select-size', product.id]">
             Add to Cart
           </a>

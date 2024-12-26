@@ -8,15 +8,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit {
-  public options: any = {};  // Déclaration de l'option pour Highcharts
+  public options: any = {};
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    // Récupérer les données de l'API
     this.http.get<any[]>('/api/ventes').subscribe(
       (data) => {
-        console.log('Data recovered:', data); // Log des données pour vérifier
+        console.log('Data recovered:', data);
         this.prepareChartData(data);
         Highcharts.chart('container', this.options);
       },

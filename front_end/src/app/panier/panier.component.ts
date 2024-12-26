@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Import nécessaire
-import { Router } from '@angular/router'; // Pour la navigation
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { CartService, CartItem } from '../service/cart.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { CartService, CartItem } from '../service/cart.service';
   standalone: true,
   templateUrl: './panier.component.html',
   styleUrls: ['./panier.component.css'],
-  imports: [CommonModule], // Import explicite pour *ngFor et autres directives
+  imports: [CommonModule],
 })
 export class PanierComponent implements OnInit {
   cartItems: CartItem[] = [];
