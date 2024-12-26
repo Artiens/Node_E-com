@@ -5,6 +5,7 @@ import {Product} from '../models/products.models';
 import {Component, OnInit} from '@angular/core';
 import type {ColDef, GridApi, GridReadyEvent} from 'ag-grid-community'; // Column Definition Type Interface
 import { ICellRendererParams } from 'ag-grid-community';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { ICellRendererParams } from 'ag-grid-community';
 
       <ag-grid-angular
         class="ag-theme-quartz"
-        style="height: 480px;"
+        style="height: 400px; width: 820px"
         [rowData]="products"
         [columnDefs]="columnDefs"
         [defaultColDef]="defaultColDef"
@@ -30,7 +31,6 @@ import { ICellRendererParams } from 'ag-grid-community';
 
       <button (click)="onBtExport()">Export CSV</button>
 
-     <!-- This will print the products in the view to confirm data binding -->
   `,
 })
 
@@ -45,14 +45,7 @@ export class ProductGridComponent implements OnInit{
     { valueGetter: p => p.data?.id, headerName: 'ID', sortable: true, filter: true },
     { valueGetter: p => p.data?.name, headerName: 'Name', sortable: true, filter: true },
     { valueGetter: p => p.data?.price, headerName: 'Price ($)', sortable: true, filter: true },
-    {
-      field: 'imageUrl',
-      headerName: 'Image URL',
-      cellRenderer: (params: ICellRendererParams) => {
-        // Use a custom cellRenderer to show images
-        return `<img ngSrc="${params.value}" width="100" height="100"  alt=""/>`;
-      }
-    },
+
     { valueGetter: p => p.data?.num, headerName: 'Sells', sortable: true, filter: true },  // Added Sells column
   ];
 
@@ -61,43 +54,55 @@ export class ProductGridComponent implements OnInit{
     sortable: true,
     filter: true
   };
-  productIds: number[] = [1, 3, 3, 3, 5, 5, 1];  // Example list of product IDs
 
-  constructor(private productService: ProductService) {}
+  constructor(private http: HttpClient, private productService: ProductService) {}
 
   ngOnInit(): void {
-    // Fetch products based on the list of product IDs
-    this.fetchProductsByIds(this.productIds);
+    this.http.get<any[]>('/api/ventes').subscribe({
+      next: (sells) => {
+        console.log('Fetched sells:', sells);
+
+        const allIds = sells.flatMap(sells => sells.idProduits.map((id: string) => parseInt(id, 10)));
+
+        console.log('All Product IDs:', allIds);
+
+        this.fetchProductsByIds(allIds);
+      },
+      error: (error) => {
+        console.error('Error fetching sells:', error);
+      },
+      complete: () => {
+        console.log('Fetching sells completed.');
+      },
+    });
   }
 
   fetchProductsByIds(ids: number[]): void {
-    // Create a frequency map of the product IDs
     const frequencyMap = this.getFrequencyMap(ids);
+    console.log('Frequency map:', Array.from(frequencyMap.entries()));
 
-    // Subscribe to the products observable to get the products
-    this.productService.getProducts().subscribe(products => {
-      console.log('Fetched products:', products);  // Log the fetched products
+    this.productService.getProducts().subscribe({
+      next: (products) => {
+        console.log('Original products:', products);
 
-      // Map over the products and add the count to each product
-      const productsWithCount = products.map(product => {
-        const count = frequencyMap.get(product.id) || 0;  // Get the count from the map, default to 0 if not found
-        return { ...product, num: count };  // Add the 'number' field to each product
-      });
+        this.products = products.map(product => {
+          const count = frequencyMap.get(product.id) || 0;
+          console.log(`Product ID: ${product.id}, Count: ${count}`);
+          return { ...product, num: count };
+        });
 
-      console.log('Processed products with count:', productsWithCount);  // Log the processed products
-
-      // Assign the processed products to the products array
-      this.products = productsWithCount;
-
-      // Check if the products array is populated correctly
-      console.log('Products array for ag-Grid:', this.products);
+        console.log('Processed products:', this.products);
+      },
+      error: (error) => {
+        console.error('Error fetching products:', error);
+      },
     });
   }
 
   getFrequencyMap(ids: number[]): Map<number, number> {
     const map = new Map<number, number>();
     ids.forEach(id => {
-      map.set(id, (map.get(id) || 0) + 1);  // Increment the count for each ID
+      map.set(id, (map.get(id) || 0) + 1);
     });
     return map;
   }
@@ -109,4 +114,5 @@ export class ProductGridComponent implements OnInit{
   onBtExport() {
     this.gridApi.exportDataAsCsv();
   }
+
 }
