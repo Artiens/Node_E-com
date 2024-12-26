@@ -24,12 +24,12 @@ export class PaiementComponent {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    // Récupération des paramètres de requête
+    // Retrieving query parameters
     this.route.queryParams.subscribe((params) => {
       this.totalPrice = +params['amount'] || 0;
     });
 
-    // Chargement des articles du panier
+    // Loading cart items
     this.cartItems = await this.cartService.getCartItems();
   }
 
@@ -37,7 +37,7 @@ export class PaiementComponent {
     if (form.valid) {
       // Préparation des données à envoyer
       const paymentData = {
-        id: 'vente_' + Date.now(), // ID unique de la vente
+        id: 'vente_' + Date.now(), //Unique ID of the sale
         somme: this.totalPrice,
         idProduits: this.cartItems.map((item) => item.product.id),
       };
@@ -46,8 +46,8 @@ export class PaiementComponent {
       this.http.post('/api/vente', paymentData).subscribe({
         next: (response) => {
           alert('Payment registered successfully !');
-          this.cartService.clearCart(); // Vider le panier après paiement
-          this.router.navigate(['/shop']); // Rediriger vers la boutique
+          this.cartService.clearCart(); // Empty cart after payment
+          this.router.navigate(['/shop']); // Redirect to the store
         },
         error: (error) => {
           console.error('Payment registration error :', error);

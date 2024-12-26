@@ -6,18 +6,18 @@ import { environment } from '../../environments/environments'; // Nécessaire po
 @Component({
   selector: 'app-login-register',
   standalone: true,
-  imports: [FormsModule], // Ajout de FormsModule pour [(ngModel)]
+  imports: [FormsModule], // Added FormsModule for [(ngModel)]
   templateUrl: './login-register.component.html',
   styleUrls: ['./login-register.component.css'],
 })
 export class LoginRegisterComponent {
-  registerUsername = ''; // Contient le nom d'utilisateur à enregistrer
-  registerPassword = ''; // Contient le mot de passe à enregistrer
+  registerUsername = ''; // Contains the username to register
+  registerPassword = ''; // Contains the password to be saved
 
   constructor(private http: HttpClient) {}
 
   /**
-   * Fonction appelée lors de la soumission du formulaire d'enregistrement
+   * Function called when the registration form is submitted
    */
   onRegister() {
     if (this.registerUsername && this.registerPassword) {

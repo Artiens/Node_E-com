@@ -16,20 +16,20 @@ export class ChartComponent implements OnInit {
     // Récupérer les données de l'API
     this.http.get<any[]>('/api/ventes').subscribe(
       (data) => {
-        console.log('Données récupérées:', data); // Log des données pour vérifier
+        console.log('Data recovered:', data); // Log des données pour vérifier
         this.prepareChartData(data);
         Highcharts.chart('container', this.options);
       },
       (error) => {
-        console.error('Erreur lors de la récupération des données:', error);
+        console.error('Error retrieving data:', error);
       }
     );
 
   }
   // Préparer les données pour le graphique
   prepareChartData(data: any[]): void {
-    const categories: string[] = [];  // Déclaration explicite comme tableau de chaînes
-    const seriesData: number[] = [];  // Déclaration explicite comme tableau de nombres
+    const categories: string[] = [];  // Explicit declaration as array of strings
+    const seriesData: number[] = [];  // Explicit declaration as array of numbers
 
     // Calculer la somme des ventes par date
     data.forEach(vente => {
@@ -37,20 +37,20 @@ export class ChartComponent implements OnInit {
       const formattedDate = `${date.getDate()}/${date.getMonth() + 1}`; // Format dd/mm
       const somme = vente.somme;
 
-      // Ajouter la somme à la catégorie correspondante
+      // Add the amount to the corresponding category
       if (categories.includes(formattedDate)) {
         const index = categories.indexOf(formattedDate);
-        seriesData[index] += somme;  // Additionner les ventes pour la même date
+        seriesData[index] += somme;  // Add the amount to the corresponding category
       } else {
         categories.push(formattedDate);
-        seriesData.push(somme);  // Ajouter une nouvelle entrée pour une nouvelle date
+        seriesData.push(somme);  // Add a new entry for a new date
       }
     });
 
-    // Configurer les options de Highcharts
+    // Configure Highcharts options
     this.options = {
       chart: {
-        type: 'line',  // Utiliser un graphique en ligne
+        type: 'line',  // Use an online chart
         height: 700
       },
       title: {
@@ -72,7 +72,7 @@ export class ChartComponent implements OnInit {
       },
       series: [{
         name: 'Sales',
-        data: seriesData  // Sommes des ventes pour chaque date
+        data: seriesData  // Sales sums for each date
       }]
     };
   }

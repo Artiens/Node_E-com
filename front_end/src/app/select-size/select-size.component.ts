@@ -10,7 +10,7 @@ import { Product } from '../models/products.models';
   templateUrl: './select-size.component.html',
   styleUrls: ['./select-size.component.css'],
   standalone: true,
-  imports: [CommonModule], // Ajout du CommonModule ici
+  imports: [CommonModule],
 })
 export class SelectSizeComponent implements OnInit {
   product: Product | undefined;
@@ -29,7 +29,7 @@ export class SelectSizeComponent implements OnInit {
     this.product = this.productService.getProductById(productId);
 
     if (!this.product) {
-      alert('Produit non trouvé');
+      alert('Product not found');
       this.router.navigate(['/shop']);
     }
   }
@@ -38,20 +38,20 @@ export class SelectSizeComponent implements OnInit {
     this.selectedSize = size;
   }
 
-  // On confirme l'ajout au panier
+  // We confirm the addition to the basket
   async onConfirm(): Promise<void> {
     if (this.product && this.selectedSize) {
       try {
-        // Attendre que le produit soit ajouté avant de naviguer
+        // Wait for the product to be added before browsing
         await this.cartService.addToCart(this.product, this.selectedSize);
-        alert(`Produit ajouté au panier avec la taille ${this.selectedSize}`);
+        alert(`Product added to cart with size ${this.selectedSize}`);
         await this.router.navigate(['/panier']);
       } catch (error) {
-        console.error('Erreur lors de l\'ajout au panier:', error);
-        alert('Une erreur est survenue lors de l\'ajout au panier.');
+        console.error('Error adding to cart:', error);
+        alert('An error occurred while adding to cart.');
       }
     } else {
-      alert('Veuillez sélectionner une pointure.');
+      alert('Please select a size.');
     }
   }
 }
