@@ -46,18 +46,39 @@ The backend is powered by Node.js to manage REST APIs providing the necessary da
 ### Screenshot
 
 Connection page, we have the choice between login and register:
-
-![image](https://github.com/user-attachments/assets/40b3360f-1063-461d-9150-f0cc3aafb7aa)
-
 You can register, which will create a new user in the database, or directly log in with an existing user using the following credentials
 Email:pierre/Password:pierre
 
+![image](https://github.com/user-attachments/assets/40b3360f-1063-461d-9150-f0cc3aafb7aa)
+
+
+
+
+Once logged in, you are redirected to this page, where you can directly click on "Add to Cart" to add the pair of shoes you want to your cart.
 ![image](https://github.com/user-attachments/assets/7c16be40-626d-4560-abfa-0b9f5b8e129e)
+
+
+
+
+
 ![image](https://github.com/user-attachments/assets/6132c42b-32bf-40ab-a19a-31d955bd13f9)
 
-Once logged in, you are redirected to this page, where you can directly click on "Add to Cart" to add the pair of shoes you want to your cart. After clicking the button, you are redirected to this page, where you can select the desired size.
+
+
+
+
+After clicking the button, you are redirected to this page, where you can select the desired size.
+
+
+
+
 
 ![image](https://github.com/user-attachments/assets/2fdc2420-d136-4366-a6e0-f584cc3e5999)
+
+
+
+
+
 
 After selecting the size, you are redirected to your cart, where you have the option to empty the cart, add another pair of shoes by returning to the shop page, or proceed to payment.
 
@@ -65,9 +86,17 @@ Here is the payment page:
 
 ![image](https://github.com/user-attachments/assets/34f9e610-96ae-4716-a1ad-0ff252b75edb)
 
+
+
+
+
 Once the order is paid, it is immediately added to the sales table in the database, and the "Total Sales by Date" chart is automatically updated.
 
 ![image](https://github.com/user-attachments/assets/0372b1be-ccfd-4cd2-bf90-0e5d3758161d)
+
+
+
+
 
 Here is the productgrid page where you can export to csv: 
 
