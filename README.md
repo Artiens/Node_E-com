@@ -29,10 +29,10 @@ The backend is powered by Node.js to manage REST APIs providing the necessary da
 - **MongoDB Database**: Structured storage of sales and product information.
 - The database contains 2 tables:
    **users**:
-  ![image](https://github.com/user-attachments/assets/a5f136d6-6edf-470c-b587-7b12ee957663)
+  ![image](https://github.com/user-attachments/assets/a5f136d6-6edf-470c-b587-7b12ee957663)<br><br>
 
   **sales**:
-  ![image](https://github.com/user-attachments/assets/c726ffe0-b42d-4dc8-bb4b-a7dc18a5de64)
+  ![image](https://github.com/user-attachments/assets/c726ffe0-b42d-4dc8-bb4b-a7dc18a5de64)<br><br>
 
 - **Local Database**: Structured storage of the cart in the browser to keep your cart even after closing the web page.
 
