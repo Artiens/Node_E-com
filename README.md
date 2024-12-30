@@ -49,20 +49,19 @@ Connection page, we have the choice between login and register:
 You can register, which will create a new user in the database, or directly log in with an existing user using the following credentials
 Email:pierre/Password:pierre
 
-![image](https://github.com/user-attachments/assets/40b3360f-1063-461d-9150-f0cc3aafb7aa)
+![image](https://github.com/user-attachments/assets/40b3360f-1063-461d-9150-f0cc3aafb7aa)<br><br>
 
 
 
 
 Once logged in, you are redirected to this page, where you can directly click on "Add to Cart" to add the pair of shoes you want to your cart.
-![image](https://github.com/user-attachments/assets/7c16be40-626d-4560-abfa-0b9f5b8e129e)
+![image](https://github.com/user-attachments/assets/7c16be40-626d-4560-abfa-0b9f5b8e129e)<br><br>
 
 
 
 
 
-![image](https://github.com/user-attachments/assets/6132c42b-32bf-40ab-a19a-31d955bd13f9)
-
+![image](https://github.com/user-attachments/assets/6132c42b-32bf-40ab-a19a-31d955bd13f9)<br><br>
 
 
 
@@ -73,7 +72,7 @@ After clicking the button, you are redirected to this page, where you can select
 
 
 
-![image](https://github.com/user-attachments/assets/2fdc2420-d136-4366-a6e0-f584cc3e5999)
+![image](https://github.com/user-attachments/assets/2fdc2420-d136-4366-a6e0-f584cc3e5999)<br><br>
 
 
 
@@ -84,7 +83,7 @@ After selecting the size, you are redirected to your cart, where you have the op
 
 Here is the payment page:
 
-![image](https://github.com/user-attachments/assets/34f9e610-96ae-4716-a1ad-0ff252b75edb)
+![image](https://github.com/user-attachments/assets/34f9e610-96ae-4716-a1ad-0ff252b75edb)<br><br>
 
 
 
@@ -92,7 +91,7 @@ Here is the payment page:
 
 Once the order is paid, it is immediately added to the sales table in the database, and the "Total Sales by Date" chart is automatically updated.
 
-![image](https://github.com/user-attachments/assets/0372b1be-ccfd-4cd2-bf90-0e5d3758161d)
+![image](https://github.com/user-attachments/assets/0372b1be-ccfd-4cd2-bf90-0e5d3758161d)<br><br>
 
 
 
@@ -100,7 +99,7 @@ Once the order is paid, it is immediately added to the sales table in the databa
 
 Here is the productgrid page where you can export to csv: 
 
-![image](https://github.com/user-attachments/assets/9a50dfd5-9088-4854-9e87-2bc4a68cdbf9)
+![image](https://github.com/user-attachments/assets/9a50dfd5-9088-4854-9e87-2bc4a68cdbf9)<br><br>
 
 
 
