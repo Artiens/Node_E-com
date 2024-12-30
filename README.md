@@ -30,7 +30,12 @@ The backend is powered by Node.js to manage REST APIs providing the necessary da
 - **Local Database**: Structured storage of the cart in the browser to keep your cart even after closing the web page.
 
 ### API Example
+- `POST /api/register`: Create a new user.
 - `GET /api/sales`: Retrieves the list of sales.
 - `POST /api/sales`: Adds a new sale.
 - `PUT /api/sales/:id`: Modifies an existing sale.
 - `DELETE /api/sales/:id`: Deletes a sale.
+
+
+![image](https://github.com/user-attachments/assets/40b3360f-1063-461d-9150-f0cc3aafb7aa)
+
