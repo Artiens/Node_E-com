@@ -1,0 +1,28 @@
+# Readme_Gabriel_Calmel
+
+
+url project : https://github.com/Artiens/Node_E-com
+
+Gabriel Calmel : gabi0s
+Antoine Clerval : Artiens
+Pierre-Alexis Tissot : pierrelouistissot
+Caroline Bourdet : CryptoL1nx
+
+
+## 1. Development of the Payment Page
+- Created a user-friendly payment page for finalizing transactions.
+- Integrated necessary fields for payment information (name, card number, address, etc.).
+- Implemented error handling and clear error messages for a better user experience.
+- Translated the interface into English to support an international audience.
+- Adding a fictitious sale in the database when paying
+
+## 2. Dynamic Revenue Table
+- Built a dynamic table displaying daily revenue.
+- Using API requests to retrieve data from the database to display sales values, which are updated automatically
+
+
+
+
+
+J'ai travailler sur la création de la page paiement, ainsi que sur le tableau dynamique qui affiche le chiddre d'affaire par jour. Pour la page de paiement il a donc fallut
+implémenter les bouton pour relier au autres pages. Pour ce qui est du graphique dynamique, tout reposait principalement sur des requetes api avec la base de donnée pour mettre à jour le graphique.
