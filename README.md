@@ -20,7 +20,7 @@ The backend is powered by Node.js to manage REST APIs providing the necessary da
 ## Features
 
 ### Frontend
-- **Dynamic Charts:** : Visualize sales by product, date, or other criteria.
+- **Dynamic Charts:** : Visualize sales by date.
 - **Interactive Tables:** : AG Grid enables dynamic data manipulation with features like CSV export.
 - **Responsive Interface:** : Adapted for desktops, tablets, and mobile devices.
 
@@ -36,10 +36,11 @@ The backend is powered by Node.js to manage REST APIs providing the necessary da
 
 - **Local Database**: Structured storage of the cart in the browser to keep your cart even after closing the web page.
 
-### API Example
+### API 
 - `POST /api/register`: Create a new user.
-- `GET /api/sales`: Retrieves the list of sales.
-- `POST /api/sales`: Adds a new sale.
+-  `POST /api/login`: User login.
+- `GET /api/ventes`:Returns all sales recorded in the database.
+- `POST /api/ventes`: Adds a new sale in the database.
 - `PUT /api/sales/:id`: Modifies an existing sale.
 - `DELETE /api/sales/:id`: Deletes a sale.
   
