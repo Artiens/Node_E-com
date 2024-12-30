@@ -27,6 +27,13 @@ The backend is powered by Node.js to manage REST APIs providing the necessary da
 - ### Backend
 - **REST API**: Endpoint management to retrieve, add, modify and delete sales data.
 - **MongoDB Database**: Structured storage of sales and product information.
+- The database contains 2 tables:
+   **users**:
+  ![image](https://github.com/user-attachments/assets/a5f136d6-6edf-470c-b587-7b12ee957663)
+
+  **sales**:
+  ![image](https://github.com/user-attachments/assets/c726ffe0-b42d-4dc8-bb4b-a7dc18a5de64)
+
 - **Local Database**: Structured storage of the cart in the browser to keep your cart even after closing the web page.
 
 ### API Example
@@ -36,6 +43,8 @@ The backend is powered by Node.js to manage REST APIs providing the necessary da
 - `PUT /api/sales/:id`: Modifies an existing sale.
 - `DELETE /api/sales/:id`: Deletes a sale.
 
-
+Connection page, we have the choice between login and register:
 ![image](https://github.com/user-attachments/assets/40b3360f-1063-461d-9150-f0cc3aafb7aa)
+
+
 
